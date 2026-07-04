@@ -3,6 +3,13 @@
 PaperTrack ships as a **single web service** (Hono API that also serves the built React SPA) plus a
 **Postgres** database. File attachments use local disk by default and **Cloudflare R2** when configured.
 
+## Current production setup
+
+- **URL:** https://papertrack.buithanhkhoa.com — Cloudflare-proxied CNAME (`papertrack` → `10937jmh.up.railway.app`, zone SSL mode Full) plus a `_railway-verify.papertrack` TXT record for Railway's cert issuance. Railway fallback URL: https://papertrack-production.up.railway.app
+- **Push-to-deploy:** the Railway service is connected to `bkdev98/papertrack` — every push to `main` builds the Dockerfile and rolls out behind the `/api/health` check.
+- **Attachments:** Cloudflare R2 bucket `papertrack-files` (APAC).
+- **Data:** seeded once at first boot; `SEED_ON_START` has been removed so deploys never reseed. Back up via Dữ liệu → Xuất file JSON.
+
 ## 1. Prerequisites
 
 - A [Railway](https://railway.app) account and the `railway` CLI (`npm i -g @railway/cli`), or the Railway MCP.
