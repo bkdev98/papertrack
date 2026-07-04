@@ -1,0 +1,27 @@
+{
+  "name": "papertrack",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.20.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter \"./apps/*\" dev",
+    "dev:db": "docker compose up -d db",
+    "build": "pnpm --filter @papertrack/shared build && pnpm --filter @papertrack/web build && pnpm --filter @papertrack/api build",
+    "start": "pnpm --filter @papertrack/api start",
+    "db:generate": "pnpm --filter @papertrack/api db:generate",
+    "db:migrate": "pnpm --filter @papertrack/api db:migrate",
+    "db:seed": "pnpm --filter @papertrack/api db:seed",
+    "db:reset": "pnpm --filter @papertrack/api db:reset",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "biome check .",
+    "format": "biome format --write ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "typescript": "^5.7.3"
+  }
+}

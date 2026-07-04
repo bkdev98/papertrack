@@ -1,0 +1,28 @@
+# Local development database. PaperTrack API talks to this on host port 5433
+# (5432 is reserved on this machine for another project — see project notes).
+#
+# NOTE: a Postgres 16 container ("papertrack-postgres") may already be running
+# on 5433 with user/pass postgres/postgres. This app uses a dedicated database
+# `papertrack_app` on that server so it never touches other schemas. On a fresh
+# machine, `docker compose up -d db` provides an equivalent server.
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: papertrack-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: papertrack_app
+    ports:
+      - "5433:5432"
+    volumes:
+      - papertrack-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d papertrack_app"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  papertrack-pgdata:

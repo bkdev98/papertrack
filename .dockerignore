@@ -1,0 +1,15 @@
+**/node_modules
+**/dist
+**/build
+.git
+.github
+.env
+.env.*
+!.env.example
+storage-data
+uploads-local
+*.log
+.DS_Store
+docs/spec
+plans
+scratchpad
