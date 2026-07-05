@@ -56,16 +56,22 @@ export function RewardsScreen() {
                   {list.map((c) => (
                     <div
                       key={c.id}
-                      className="grid items-center gap-3 border-b border-rule py-2.5"
-                      style={{ gridTemplateColumns: '90px 1fr 160px' }}
+                      className="grid grid-cols-[90px_1fr_160px] items-center gap-3 border-b border-rule py-2.5 max-sm:my-1.5 max-sm:flex max-sm:flex-col max-sm:items-start max-sm:gap-2 max-sm:rounded-[4px] max-sm:border max-sm:border-rule-2 max-sm:bg-paper-card max-sm:p-3.5 max-sm:shadow-[0_1px_2px_rgba(34,29,20,0.05)]"
                     >
-                      <span className="inline-flex w-fit items-center justify-center rounded-[2px] border border-line-chip bg-paper-abbr px-1.5 py-px font-mono text-[10.5px] text-ink-rank">
-                        {c.abbr || '—'}
-                      </span>
-                      <span className="font-serif text-[14.5px] text-ink">{c.name}</span>
-                      <span className="text-right font-mono text-[11.5px] tabular-nums text-ink">
-                        {formatMoney(c.amount)} ₫
-                      </span>
+                      <div className="contents max-sm:flex max-sm:min-w-0 max-sm:items-baseline max-sm:gap-2">
+                        <span className="inline-flex w-fit items-center justify-center rounded-[2px] border border-line-chip bg-paper-abbr px-1.5 py-px font-mono text-[10.5px] text-ink-rank">
+                          {c.abbr || '—'}
+                        </span>
+                        <span className="font-serif text-[14.5px] text-ink">{c.name}</span>
+                      </div>
+                      <div className="contents max-sm:flex max-sm:flex-wrap max-sm:items-center max-sm:gap-x-3 max-sm:gap-y-1.5">
+                        <span className="text-right font-mono text-[11.5px] tabular-nums text-ink max-sm:text-left max-sm:justify-self-auto">
+                          <span className="hidden max-sm:mr-1 max-sm:inline font-mono text-[8px] uppercase tracking-[1px] text-faint">
+                            KHEN THƯỞNG{' '}
+                          </span>
+                          {formatMoney(c.amount)} ₫
+                        </span>
+                      </div>
                     </div>
                   ))}
                 </div>

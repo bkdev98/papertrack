@@ -39,7 +39,7 @@ export function StatusFilterStrip({
     <div className="mb-5">
       {/* thick ink line the band hangs from */}
       <div className="h-[1.5px] bg-ink" />
-      <div className="flex items-stretch overflow-x-auto border-b border-ink">
+      <div className="flex items-stretch overflow-x-auto border-b border-ink max-sm:[scrollbar-width:none] max-sm:[&::-webkit-scrollbar]:hidden">
         {cells.map((c) => {
           const active = selected === c.key
           const dim = c.key !== 'all' && c.count === 0

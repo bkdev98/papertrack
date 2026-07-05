@@ -46,7 +46,11 @@ export function ScreenHeader({
       <div className="relative flex flex-wrap items-baseline gap-x-4 gap-y-2 pb-2">
         <h1 className="font-mono text-[10.5px] uppercase tracking-[1.8px] text-ink">{eyebrow}</h1>
         {caption && <span className="font-serif text-[13px] italic text-muted">{caption}</span>}
-        {children && <div className="ml-auto flex items-center gap-4">{children}</div>}
+        {children && (
+          <div className="ml-auto flex items-center gap-4 max-sm:flex-wrap max-sm:justify-end">
+            {children}
+          </div>
+        )}
       </div>
       {rule && <SectionRule delay={0.15} />}
     </header>

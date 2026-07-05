@@ -47,7 +47,7 @@ export function ConferencesScreen() {
               type="button"
               key={c.id}
               onClick={() => openDetail(c.id)}
-              className="flex w-full animate-pt-up items-start gap-[18px] border-b border-rule-3 py-4 text-left transition-colors hover:bg-[rgba(163,56,43,0.04)]"
+              className="flex w-full animate-pt-up items-start gap-[18px] border-b border-rule-3 py-4 text-left transition-colors hover:bg-[rgba(163,56,43,0.04)] max-sm:flex-wrap"
               style={{ opacity: past ? 0.55 : 1, animationDelay: `${0.15 + i * 0.04}s` }}
             >
               <TimelineCircle days={d ?? -1} index={i} />
@@ -57,7 +57,7 @@ export function ConferencesScreen() {
                 </div>
                 <div className="mt-[3px] font-serif text-[13px] italic text-muted">{sub}</div>
               </div>
-              <div className="shrink-0 pt-[5px] text-right">
+              <div className="shrink-0 pt-[5px] text-right max-sm:w-full max-sm:pl-[78px] max-sm:pt-0 max-sm:text-left">
                 <div
                   className="font-mono text-[10px] tracking-[0.8px]"
                   style={{ color: urgent ? 'var(--color-seal)' : 'var(--color-muted)' }}

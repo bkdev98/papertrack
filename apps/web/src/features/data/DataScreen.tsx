@@ -183,7 +183,7 @@ function ColumnHeading({ children }: { children: ReactNode }) {
 
 // ─── Full-width, left-aligned action buttons (Thao tác column) ────────────────
 const actionBase =
-  'block w-full cursor-pointer px-4 py-[11px] text-left font-mono text-[10.5px] uppercase tracking-[1px] ' +
+  'block w-full cursor-pointer px-4 py-[11px] max-sm:min-h-[44px] text-left font-mono text-[10.5px] uppercase tracking-[1px] ' +
   'transition-all duration-[180ms] disabled:pointer-events-none disabled:opacity-55'
 
 const actionTone = {

@@ -23,7 +23,7 @@ export function DeadlineTimeline({ deadlines }: { deadlines: Deadline[] }) {
           <button
             type="button"
             onClick={() => nav(PATHS.catalog('hoi-thao'))}
-            className="cursor-pointer font-serif text-[13px] italic text-muted transition-colors hover:text-seal"
+            className="cursor-pointer font-serif text-[13px] italic text-muted transition-colors hover:text-seal max-sm:py-3.5"
           >
             Xem hội thảo →
           </button>

@@ -99,32 +99,63 @@ function AuthorRow({
 
   return (
     <div className="border-b border-rule/70 py-2 last:border-b-0">
-      <div className="flex items-baseline gap-1.5">
+      <div className="flex items-baseline gap-1.5 max-sm:flex-wrap">
         <span className="whitespace-nowrap font-script text-[19px] font-semibold text-ink-sig">
           {row.author}
         </span>
         <span className="mb-[4px] flex-1 self-end border-b border-dotted border-dotline" />
-        <span className={cn('whitespace-nowrap font-mono text-[10.5px]', color)}>{text}</span>
+        <span
+          className={cn(
+            'whitespace-nowrap max-lg:whitespace-normal max-lg:text-right font-mono text-[10.5px]',
+            color,
+          )}
+        >
+          {text}
+        </span>
       </div>
       {row.target !== 0 && (
         <div className="mt-1.5 flex flex-wrap gap-2">
           {row.paid !== 0 ? (
             <>
               {row.pending !== 0 && (
-                <Button variant="ghost" size="sm" disabled={busy} onClick={partial}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="max-sm:min-h-[44px] max-sm:px-4"
+                  disabled={busy}
+                  onClick={partial}
+                >
                   ½ một phần
                 </Button>
               )}
-              <Button variant="ghost-red" size="sm" disabled={busy} onClick={cancel}>
+              <Button
+                variant="ghost-red"
+                size="sm"
+                className="max-sm:min-h-[44px] max-sm:px-4"
+                disabled={busy}
+                onClick={cancel}
+              >
                 hủy
               </Button>
             </>
           ) : (
             <>
-              <Button variant="primary" size="sm" disabled={busy} onClick={record}>
+              <Button
+                variant="primary"
+                size="sm"
+                className="max-sm:min-h-[44px] max-sm:px-4"
+                disabled={busy}
+                onClick={record}
+              >
                 {row.target < 0 ? '✓ ghi đã thu' : '✓ ghi đã trả'}
               </Button>
-              <Button variant="ghost" size="sm" disabled={busy} onClick={partial}>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="max-sm:min-h-[44px] max-sm:px-4"
+                disabled={busy}
+                onClick={partial}
+              >
                 ½ một phần
               </Button>
             </>
@@ -202,7 +233,7 @@ export function SettleSlipCard({ slip, index }: { slip: SettleSlip; index: numbe
               }
               disabled={settleReward.isPending}
               className={cn(
-                'mt-3 inline-flex cursor-pointer items-center border px-2.5 py-1.5 font-mono text-[9px] uppercase tracking-[0.8px] transition-colors disabled:opacity-55',
+                'mt-3 inline-flex cursor-pointer items-center border px-2.5 py-1.5 max-sm:min-h-[44px] max-sm:px-3.5 font-mono text-[9px] uppercase tracking-[0.8px] transition-colors disabled:opacity-55',
                 slip.rewardReceived
                   ? 'border-positive text-positive hover:bg-[rgba(62,110,69,0.08)]'
                   : 'border-line text-muted hover:border-ink hover:text-ink',

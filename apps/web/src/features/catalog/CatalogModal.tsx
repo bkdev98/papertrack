@@ -107,7 +107,7 @@ function CatalogModalForm({
     <>
       <ModalHeader title={title} sub={def.sub} onClose={onClose} size="sm" />
       <ModalBody>
-        <div className="grid grid-cols-2 gap-x-7 gap-y-4">
+        <div className="grid grid-cols-2 gap-x-7 gap-y-4 max-sm:grid-cols-1">
           {def.fields.map((f, i) => (
             <Field
               key={f.key}

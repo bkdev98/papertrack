@@ -22,7 +22,7 @@ export function Modal({
   useOverlay(open, onClose, dialogRef)
   if (!mounted) return null
   return createPortal(
-    <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto p-6 sm:p-10">
+    <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto p-4 sm:p-10">
       <div
         className={cn(
           'fixed inset-0 bg-[rgba(34,29,20,0.35)]',
@@ -69,7 +69,7 @@ export function ModalHeader({
 }) {
   const sm = size === 'sm'
   return (
-    <div className="px-7 pt-6">
+    <div className="max-sm:px-4 max-sm:pt-5 px-7 pt-6">
       <div className="flex items-baseline gap-3">
         <span className={cn('text-seal', sm ? 'text-[17px]' : 'text-[20px]')}>❧</span>
         <h2
@@ -93,7 +93,7 @@ export function ModalHeader({
             type="button"
             onClick={onClose}
             aria-label="Đóng"
-            className="cursor-pointer text-[16px] text-muted transition-colors hover:text-seal"
+            className="cursor-pointer text-[16px] text-muted transition-colors hover:text-seal max-sm:-m-2 max-sm:p-2"
           >
             ✕
           </button>
@@ -105,12 +105,17 @@ export function ModalHeader({
 }
 
 export function ModalBody({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cn('px-7 py-6', className)}>{children}</div>
+  return <div className={cn('max-sm:px-4 px-7 py-6', className)}>{children}</div>
 }
 
 export function ModalFooter({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <div className={cn('flex items-center gap-3 border-t border-rule px-7 py-4', className)}>
+    <div
+      className={cn(
+        'flex items-center gap-3 border-t border-rule max-sm:px-4 px-7 py-4',
+        className,
+      )}
+    >
       {children}
     </div>
   )

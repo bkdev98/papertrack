@@ -37,16 +37,16 @@ export function SpecialIssuesScreen() {
               type="button"
               key={si.id}
               onClick={() => openDetail(si.id)}
-              className="flex w-full animate-pt-up items-start gap-[18px] border-b border-rule-3 py-4 text-left transition-colors hover:bg-[rgba(163,56,43,0.04)]"
+              className="flex w-full animate-pt-up items-start gap-[18px] border-b border-rule-3 py-4 text-left transition-colors hover:bg-[rgba(163,56,43,0.04)] max-sm:flex-wrap"
               style={{ animationDelay: `${0.15 + i * 0.04}s` }}
             >
               <TimelineCircle days={d ?? -1} index={i} />
               <div className="flex-1 pt-1">
-                <div className="flex items-baseline gap-2.5">
+                <div className="flex items-baseline gap-2.5 max-sm:flex-wrap">
                   <span className="font-serif text-[16px] font-medium leading-[1.35] text-ink">
                     {si.name}
                   </span>
-                  <span className="border border-line px-1.5 py-px font-mono text-[9px] uppercase tracking-[0.8px] text-muted">
+                  <span className="max-sm:whitespace-nowrap border border-line px-1.5 py-px font-mono text-[9px] uppercase tracking-[0.8px] text-muted">
                     {si.type || 'Special Issue'}
                   </span>
                 </div>
@@ -54,7 +54,7 @@ export function SpecialIssuesScreen() {
                   {si.journal || '—'} · {si.rank || '—'}
                 </div>
               </div>
-              <div className="shrink-0 pt-[5px] text-right">
+              <div className="shrink-0 pt-[5px] text-right max-sm:w-full max-sm:pl-[78px] max-sm:pt-0 max-sm:text-left">
                 <div
                   className="font-mono text-[10px] tracking-[0.8px]"
                   style={{ color: urgent ? 'var(--color-seal)' : 'var(--color-muted)' }}

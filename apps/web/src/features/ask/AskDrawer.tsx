@@ -157,14 +157,14 @@ export function AskDrawer({ open, onClose }: { open: boolean; onClose: () => voi
             rows={1}
             placeholder="Hỏi sổ một câu…"
             aria-label="Câu hỏi cho sổ"
-            className="min-h-[40px] max-h-32 min-w-0 flex-1 resize-none rounded-[3px] border border-line bg-paper-note px-3.5 py-2.5 font-serif text-[13.5px] leading-[1.5] text-ink shadow-[inset_0_1px_2px_rgba(34,29,20,0.04)] outline-none transition-colors focus:border-seal placeholder:italic placeholder:text-faint"
+            className="min-h-[40px] max-h-32 min-w-0 flex-1 resize-none rounded-[3px] border border-line bg-paper-note px-3.5 py-2.5 font-serif text-[13.5px] max-sm:text-[16px] leading-[1.5] text-ink shadow-[inset_0_1px_2px_rgba(34,29,20,0.04)] outline-none transition-colors focus:border-seal placeholder:italic placeholder:text-faint"
           />
           <button
             type="button"
             onClick={() => send()}
             disabled={ask.isPending || !q.trim()}
             aria-label="Gửi câu hỏi"
-            className="shadow-stamp flex h-[40px] shrink-0 cursor-pointer items-center gap-1.5 bg-ink px-4 font-mono text-[10.5px] uppercase tracking-[1px] text-paper transition-all duration-[160ms] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_rgba(163,56,43,0.85)] active:scale-[0.97] disabled:pointer-events-none disabled:opacity-55"
+            className="shadow-stamp flex h-[40px] max-sm:h-[44px] shrink-0 cursor-pointer items-center gap-1.5 bg-ink px-4 font-mono text-[10.5px] uppercase tracking-[1px] text-paper transition-all duration-[160ms] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[5px_5px_0_rgba(163,56,43,0.85)] active:scale-[0.97] disabled:pointer-events-none disabled:opacity-55"
           >
             <span className={ask.isPending ? 'animate-pulse' : ''}>
               {ask.isPending ? '…' : 'Hỏi'}
@@ -301,7 +301,7 @@ function TurnBlock({
                   <span className="min-w-0 flex-1 truncate font-serif text-[12.5px] text-ink transition-colors group-hover:text-seal">
                     {paper.title}
                   </span>
-                  <span className="shrink-0 pl-1 font-serif text-[11px] italic text-faint">
+                  <span className="shrink-0 max-sm:max-w-[45%] max-sm:truncate pl-1 font-serif text-[11px] italic text-faint">
                     {paper.venue}
                   </span>
                 </button>

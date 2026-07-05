@@ -22,7 +22,7 @@ export function StageFunnel({ stages, inprocCount }: { stages: StageStat[]; inpr
           </span>
         }
       />
-      <div className="mt-[18px] grid" style={{ gridTemplateColumns: 'repeat(5,1fr)' }}>
+      <div className="mt-[18px] grid grid-cols-[repeat(5,1fr)] max-sm:grid-cols-3 max-sm:gap-y-4">
         {stages.map((s, i) => {
           const width = max ? Math.max((s.count / max) * 100, 8) : 8
           return (

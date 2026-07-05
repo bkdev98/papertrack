@@ -37,7 +37,7 @@ export function Drawer({
           'absolute right-0 top-0 flex h-full flex-col border-l border-ink bg-paper-drawer outline-none',
           exiting ? 'animate-pt-panel-out' : 'animate-pt-panel',
         )}
-        style={{ width, maxWidth: '100vw', boxShadow: '-12px 0 40px rgba(34,29,20,0.22)' }}
+        style={{ width, maxWidth: '100dvw', boxShadow: '-12px 0 40px rgba(34,29,20,0.22)' }}
         role="dialog"
         aria-modal="true"
         aria-label={label}
@@ -65,13 +65,13 @@ export function DrawerHeader({
   onBack?: () => void
 }) {
   return (
-    <div className="flex items-center gap-3 border-b border-line bg-paper-head px-5 py-3">
+    <div className="flex items-center gap-3 border-b border-line bg-paper-head max-sm:px-4 px-5 py-3">
       {onBack && (
         <button
           type="button"
           onClick={onBack}
           aria-label="Quay lại"
-          className="-ml-1 flex shrink-0 cursor-pointer items-center gap-1 border-r border-rule pr-3 font-mono text-[9.5px] uppercase tracking-[1.2px] text-muted transition-colors hover:text-seal"
+          className="-ml-1 flex shrink-0 cursor-pointer items-center gap-1 border-r border-rule pr-3 font-mono text-[9.5px] uppercase tracking-[1.2px] text-muted transition-colors hover:text-seal max-sm:-my-2 max-sm:py-2"
         >
           <span className="text-[14px] leading-none">‹</span>
           Quay lại
@@ -85,7 +85,7 @@ export function DrawerHeader({
           type="button"
           onClick={onClose}
           aria-label="Đóng"
-          className="cursor-pointer text-[16px] text-muted transition-colors hover:text-seal"
+          className="cursor-pointer text-[16px] text-muted transition-colors hover:text-seal max-sm:-m-2 max-sm:p-2"
         >
           ✕
         </button>
@@ -95,12 +95,14 @@ export function DrawerHeader({
 }
 
 export function DrawerBody({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cn('flex-1 overflow-y-auto px-6 py-5', className)}>{children}</div>
+  return (
+    <div className={cn('flex-1 overflow-y-auto max-sm:px-4 px-6 py-5', className)}>{children}</div>
+  )
 }
 
 export function DrawerFooter({ children }: { children: ReactNode }) {
   return (
-    <div className="flex items-center gap-3 border-t border-rule bg-paper-head/60 px-6 py-4">
+    <div className="flex items-center gap-3 border-t border-rule bg-paper-head/60 max-sm:px-4 px-6 py-4">
       {children}
     </div>
   )

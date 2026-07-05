@@ -8,7 +8,7 @@ import type {
 } from 'react'
 
 const fieldBase =
-  'w-full bg-transparent font-serif text-[15px] text-ink outline-none transition-colors ' +
+  'w-full bg-transparent font-serif text-[15px] max-sm:text-[16px] text-ink outline-none transition-colors ' +
   'border-b border-dotline focus:border-seal placeholder:italic placeholder:text-faint'
 
 export function Field({
@@ -78,7 +78,7 @@ export function SearchInput({ className, ...props }: InputHTMLAttributes<HTMLInp
     <input
       type="search"
       className={cn(
-        'bg-transparent font-serif text-[14px] italic text-ink outline-none transition-colors',
+        'bg-transparent font-serif text-[14px] max-sm:text-[16px] italic text-ink outline-none transition-colors',
         'border-b border-line focus:border-seal placeholder:text-faint',
         'w-[230px] max-w-full py-1',
         className,

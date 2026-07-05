@@ -180,7 +180,7 @@ function Body({
           </div>
 
           <div
-            className="inline-block origin-left animate-pt-ink border-b border-dotted border-dotline px-1 pb-1 font-script text-[36px] font-semibold leading-[1.15] text-ink-sig"
+            className="inline-block origin-left animate-pt-ink border-b border-dotted border-dotline px-1 pb-1 font-script text-[36px] font-semibold leading-[1.15] text-ink-sig max-sm:text-[30px]"
             style={{ transform: 'rotate(-1.2deg)', animationDelay: '0.1s' }}
           >
             {a.name}
@@ -561,7 +561,9 @@ function Facts({ facts }: { facts: Fact[] }) {
         <div key={i} className="flex items-baseline">
           <span className="whitespace-nowrap font-serif text-[13.5px] text-muted">{f.k}</span>
           <span className="mx-2 flex-1 -translate-y-[3px] border-b border-dotted border-rule-2" />
-          <span className="text-right font-mono text-[11px] text-ink">{f.v}</span>
+          <span className="min-w-0 text-right font-mono text-[11px] text-ink max-sm:break-all">
+            {f.v}
+          </span>
         </div>
       ))}
     </div>

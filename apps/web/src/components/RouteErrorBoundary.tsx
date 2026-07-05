@@ -27,7 +27,7 @@ export class RouteErrorBoundary extends Component<{ children: ReactNode }, { fai
         <button
           type="button"
           onClick={() => window.location.reload()}
-          className="cursor-pointer border-[1.5px] border-ink px-4 py-1.5 font-mono text-[10px] uppercase tracking-[1.4px] text-ink transition-colors hover:bg-ink hover:text-paper [border-radius:3px/7px]"
+          className="cursor-pointer border-[1.5px] border-ink px-4 py-1.5 max-sm:min-h-[44px] max-sm:px-5 font-mono text-[10px] uppercase tracking-[1.4px] text-ink transition-colors hover:bg-ink hover:text-paper [border-radius:3px/7px]"
         >
           Tải lại trang
         </button>

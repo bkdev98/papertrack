@@ -32,17 +32,17 @@ export function Pager({
   const hi = Math.min(total, (page + 1) * pageSize)
 
   const shared =
-    'font-mono cursor-pointer transition-colors disabled:opacity-40 disabled:cursor-default'
+    'font-mono cursor-pointer transition-colors disabled:opacity-40 disabled:cursor-default max-sm:min-h-9'
   // Prev/next: 9.5px uppercase, tracked. Page numbers: 11px, plain (matches the ledger paper feel).
   const navChip = cn(shared, 'text-[9.5px] uppercase tracking-[1.2px]')
-  const pageChip = cn(shared, 'text-[11px]')
+  const pageChip = cn(shared, 'text-[11px] max-sm:min-w-8 max-sm:px-1.5')
 
   return (
     <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
       <span className="font-serif text-[12.5px] italic text-faint">
         {noun} {lo}–{hi} trong {total} — tờ {page + 1}/{count}
       </span>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 max-sm:flex-wrap max-sm:justify-end">
         <button
           type="button"
           className={cn(navChip, 'text-muted hover:text-seal')}

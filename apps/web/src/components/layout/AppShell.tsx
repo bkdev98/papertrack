@@ -32,13 +32,13 @@ export function AppShell() {
     <div className="paper-texture flex min-h-screen flex-col">
       <Masthead />
       <NavTabs counts={counts} />
-      <main className="flex-1 px-6 pb-20 pt-7 sm:px-12">
+      <main className="flex-1 px-6 pb-20 pt-7 max-sm:px-4 sm:px-12">
         {/* Keyed by path so a failed route resets when the user navigates elsewhere. */}
         <RouteErrorBoundary key={pathname}>
           <Outlet />
         </RouteErrorBoundary>
       </main>
-      <footer className="px-6 pb-6 text-center font-mono text-[8.5px] tracking-[1.4px] text-faint sm:px-12">
+      <footer className="px-6 pb-6 text-center font-mono text-[8.5px] tracking-[1.4px] text-faint max-sm:px-4 sm:px-12">
         ❦ &nbsp;PaperTrack by VREX STUDIO
       </footer>
     </div>

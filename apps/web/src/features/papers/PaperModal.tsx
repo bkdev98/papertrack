@@ -377,7 +377,7 @@ export function PaperModal({
                     list="pt-venues"
                     aria-label="Tạp chí hoặc hội thảo"
                     placeholder="Gõ để tìm trong danh mục…"
-                    className="!text-[15.5px]"
+                    className="!text-[15.5px] max-sm:!text-[16px]"
                   />
                   <datalist id="pt-venues">
                     {venueNames.map((n) => (
@@ -399,7 +399,7 @@ export function PaperModal({
                           aria-pressed={sel}
                           onClick={() => set('status', s)}
                           className={cn(
-                            'cursor-pointer whitespace-nowrap border-[1.5px] px-[9px] py-1 font-mono text-[8.5px] uppercase tracking-[0.8px] transition-all [border-radius:3px/7px]',
+                            'cursor-pointer whitespace-nowrap border-[1.5px] px-[9px] py-1 font-mono text-[8.5px] uppercase tracking-[0.8px] transition-all [border-radius:3px/7px] max-sm:py-2',
                             !sel && 'border-rule text-muted-2 hover:border-ink hover:text-ink',
                           )}
                           style={
@@ -445,7 +445,7 @@ export function PaperModal({
                             )
                           }
                           aria-label={`Bỏ ${name}`}
-                          className="cursor-pointer text-[11px] leading-none text-faint transition-colors hover:text-seal"
+                          className="cursor-pointer text-[11px] leading-none text-faint transition-colors hover:text-seal max-sm:p-1.5 max-sm:-my-1.5"
                         >
                           ✕
                         </button>
@@ -458,7 +458,7 @@ export function PaperModal({
                       list="pt-authors"
                       aria-label="Thêm tác giả"
                       placeholder="+ gõ tên để thêm…"
-                      className="w-[200px] border-b border-dotted border-dotline bg-transparent px-0.5 py-1 font-serif text-[14px] italic text-ink outline-none transition-colors focus:border-seal placeholder:text-faint"
+                      className="w-[200px] border-b border-dotted border-dotline bg-transparent px-0.5 py-1 font-serif text-[14px] max-sm:text-[16px] italic text-ink outline-none transition-colors focus:border-seal placeholder:text-faint"
                     />
                     <datalist id="pt-authors">
                       {authorOpts.map((n) => (
@@ -524,7 +524,7 @@ export function PaperModal({
                           aria-pressed={sel}
                           onClick={() => set('type', t)}
                           className={cn(
-                            'cursor-pointer border-[1.5px] px-[11px] py-[5px] font-mono text-[9px] uppercase tracking-[0.8px] transition-all [border-radius:3px/7px]',
+                            'cursor-pointer border-[1.5px] px-[11px] py-[5px] font-mono text-[9px] uppercase tracking-[0.8px] transition-all [border-radius:3px/7px] max-sm:py-2',
                             sel
                               ? 'border-ink bg-paper-abbr text-ink'
                               : 'border-line text-muted-2 hover:border-ink hover:text-ink',
@@ -545,7 +545,7 @@ export function PaperModal({
                     value={form.date}
                     onChange={(e) => set('date', e.target.value)}
                     aria-label="Ngày nộp"
-                    className="w-full border-b border-dotted border-dotline bg-transparent px-0.5 py-[5px] font-mono text-[12.5px] text-ink outline-none transition-colors focus:border-seal"
+                    className="w-full border-b border-dotted border-dotline bg-transparent px-0.5 py-[5px] font-mono text-[12.5px] max-sm:text-[16px] text-ink outline-none transition-colors focus:border-seal"
                   />
                 </div>
 
@@ -568,7 +568,7 @@ export function PaperModal({
                     value={form.rank}
                     onChange={(e) => set('rank', e.target.value)}
                     aria-label="Phân loại"
-                    className="w-full cursor-pointer border-b border-dotted border-dotline bg-transparent px-0.5 py-[5px] font-mono text-[12.5px] text-ink outline-none transition-colors focus:border-seal"
+                    className="w-full cursor-pointer border-b border-dotted border-dotline bg-transparent px-0.5 py-[5px] font-mono text-[12.5px] max-sm:text-[16px] text-ink outline-none transition-colors focus:border-seal"
                   >
                     <option value="">— chọn —</option>
                     {rankOptions.map((abbr) => (
@@ -635,15 +635,17 @@ export function PaperModal({
                     onChange={(e) => set('doi', e.target.value)}
                     aria-label="DOI"
                     placeholder="10.…"
-                    className="w-full border-b border-dotted border-dotline bg-transparent px-0.5 py-[5px] font-mono text-[11.5px] text-ink outline-none transition-colors focus:border-seal placeholder:text-faint"
+                    className="w-full border-b border-dotted border-dotline bg-transparent px-0.5 py-[5px] font-mono text-[11.5px] max-sm:text-[16px] text-ink outline-none transition-colors focus:border-seal placeholder:text-faint"
                   />
                 </div>
               </div>
             </div>
           </ModalBody>
 
-          <ModalFooter>
-            <span className="mr-auto font-serif text-[12.5px] italic text-seal">{error}</span>
+          <ModalFooter className="max-sm:flex-wrap">
+            <span className="mr-auto max-sm:basis-full font-serif text-[12.5px] italic text-seal">
+              {error}
+            </span>
             <span className="font-serif text-[12.5px] italic text-faint">
               {formatDateSigned(new Date())}
             </span>
@@ -701,7 +703,7 @@ function CostInput({
         placeholder="0"
         inputMode="numeric"
         aria-label={`Chi phí: ${label}`}
-        className="min-w-0 flex-1 border-b border-dotted border-rule-2 bg-transparent px-0.5 py-0.5 text-right font-mono text-[11.5px] text-ink outline-none transition-colors focus:border-seal placeholder:text-faint"
+        className="min-w-0 flex-1 border-b border-dotted border-rule-2 bg-transparent px-0.5 py-0.5 text-right font-mono text-[11.5px] max-sm:text-[16px] text-ink outline-none transition-colors focus:border-seal placeholder:text-faint"
       />
     </div>
   )
@@ -770,7 +772,7 @@ function AutofillBar({
               : 'Dán DOI (vd. 10.1145/…) rồi bấm Điền…'
           }
           aria-label="Nguồn tự động điền"
-          className="min-w-0 flex-1 border-b border-dotted border-dotline bg-transparent px-0.5 py-[5px] font-mono text-[11.5px] text-ink outline-none transition-colors focus:border-seal placeholder:text-faint"
+          className="min-w-0 flex-1 border-b border-dotted border-dotline bg-transparent px-0.5 py-[5px] font-mono text-[11.5px] max-sm:text-[16px] text-ink outline-none transition-colors focus:border-seal placeholder:text-faint"
         />
         <Button variant="ghost" size="sm" onClick={run} disabled={busy || !source.trim()}>
           {busy ? '…' : 'Điền'}

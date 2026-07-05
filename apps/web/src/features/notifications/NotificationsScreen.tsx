@@ -185,7 +185,7 @@ export function NotificationsScreen() {
               onClick={() => toggle(t.key)}
               aria-pressed={on}
               className={cn(
-                'group inline-flex cursor-pointer items-center gap-1.5 border px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.8px] transition-colors hover:border-ink hover:text-ink',
+                'group inline-flex cursor-pointer items-center gap-1.5 border px-2.5 py-1 max-sm:min-h-[44px] max-sm:px-3 font-mono text-[9px] uppercase tracking-[0.8px] transition-colors hover:border-ink hover:text-ink',
                 on ? 'border-ink text-ink' : 'border-line text-faint',
               )}
             >
@@ -327,7 +327,7 @@ function NotifRow({ item, delay }: { item: NotifItem; delay: number }) {
     <button
       type="button"
       onClick={item.go}
-      className="flex animate-pt-fade items-baseline gap-4 border-b border-rule-3 px-1.5 py-3 text-left transition-colors hover:bg-[rgba(163,56,43,0.05)]"
+      className="flex animate-pt-fade items-baseline gap-4 max-sm:flex-wrap max-sm:gap-y-1 border-b border-rule-3 px-1.5 py-3 text-left transition-colors hover:bg-[rgba(163,56,43,0.05)]"
       style={{ animationDelay: `${delay}s` }}
     >
       <span
@@ -346,7 +346,7 @@ function NotifRow({ item, delay }: { item: NotifItem; delay: number }) {
         <span className="text-[14.5px] font-medium">{item.title}</span>
         <span className="mt-px block text-[12.5px] italic text-muted">{item.sub}</span>
       </span>
-      <span className="shrink-0 whitespace-nowrap font-script text-[16px] font-semibold text-seal">
+      <span className="shrink-0 whitespace-nowrap max-sm:basis-full font-script text-[16px] font-semibold text-seal">
         {item.action}
       </span>
     </button>

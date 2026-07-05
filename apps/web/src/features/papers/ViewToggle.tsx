@@ -20,7 +20,7 @@ export function ViewToggle({
           aria-pressed={value === o.key}
           onClick={() => onChange(o.key)}
           className={cn(
-            'cursor-pointer border-b-2 pb-0.5 font-mono text-[10px] uppercase tracking-[1.2px] transition-colors',
+            'cursor-pointer border-b-2 pb-0.5 font-mono text-[10px] uppercase tracking-[1.2px] transition-colors max-sm:pt-2 max-sm:pb-2 max-sm:-my-2',
             value === o.key
               ? 'border-seal text-ink'
               : 'border-transparent text-muted hover:text-ink',

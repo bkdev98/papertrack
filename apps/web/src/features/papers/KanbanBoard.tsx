@@ -9,7 +9,8 @@ import {
   DragOverlay,
   type DragStartEvent,
   KeyboardSensor,
-  PointerSensor,
+  MouseSensor,
+  TouchSensor,
   type UniqueIdentifier,
   closestCorners,
   getFirstCollision,
@@ -69,7 +70,11 @@ function SortableCard({
   return (
     <div
       ref={setNodeRef}
-      style={{ transform: CSS.Translate.toString(transform), transition }}
+      style={{
+        transform: CSS.Translate.toString(transform),
+        transition,
+        touchAction: 'manipulation',
+      }}
       {...attributes}
       {...listeners}
     >
@@ -95,7 +100,7 @@ function Column({
   const meta = STATUS_META[status]
   const { setNodeRef, isOver } = useDroppable({ id: status })
   return (
-    <div className="flex min-w-0 flex-col">
+    <div className="flex min-w-0 flex-col max-lg:shrink-0 max-lg:snap-start max-sm:w-[82vw] sm:max-lg:w-[40vw]">
       <div className="pb-1.5">
         <div className="flex items-baseline gap-1.5">
           <span
@@ -163,8 +168,11 @@ export function KanbanBoard({ papers, group }: { papers: Paper[]; group: GroupKe
     if (activeId == null) setItems(buildColumns(papers, columns))
   }, [papers, columns, activeId])
 
+  // Mouse keeps the 5px slop; touch needs a long-press before the drag claims
+  // the gesture, so quick finger swipes over the cards still scroll the board.
   const sensors = useSensors(
-    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(MouseSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 8 } }),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
   )
 
@@ -344,8 +352,11 @@ export function KanbanBoard({ papers, group }: { papers: Paper[]; group: GroupKe
       onDragEnd={onDragEnd}
       onDragCancel={() => setActiveId(null)}
     >
+      {/* Below lg the board becomes a snap-scrolling flex row of fixed-width
+          columns (display:flex makes the inline grid-template-columns inert);
+          from lg up the grid renders exactly as before. */}
       <div
-        className="grid animate-pt-fade gap-5 overflow-x-auto pb-2"
+        className="grid max-lg:flex max-lg:snap-x max-lg:snap-mandatory animate-pt-fade gap-5 overflow-x-auto pb-2"
         style={{ gridTemplateColumns: `repeat(${columns.length}, minmax(185px, 1fr))` }}
       >
         {columns.map((status) => (

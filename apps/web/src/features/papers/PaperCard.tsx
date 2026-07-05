@@ -30,7 +30,7 @@ export function AdvanceArrow({
       }}
       style={{ fontSize: size }}
       className={cn(
-        'cursor-pointer leading-none text-ink opacity-25 transition-all duration-150 hover:translate-x-0.5 hover:opacity-100',
+        'cursor-pointer leading-none text-ink opacity-25 transition-all duration-150 hover:translate-x-0.5 hover:opacity-100 max-sm:p-2.5 max-sm:-my-2.5',
         className,
       )}
     >

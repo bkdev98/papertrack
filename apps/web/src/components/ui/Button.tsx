@@ -16,8 +16,8 @@ const base =
   'disabled:opacity-55 disabled:pointer-events-none select-none'
 
 const sizes: Record<Size, string> = {
-  sm: 'text-[10px] px-3 py-1.5',
-  md: 'text-[10.5px] px-4 py-[9px]',
+  sm: 'text-[10px] px-3 py-1.5 max-sm:min-h-10',
+  md: 'text-[10.5px] px-4 py-[9px] max-sm:min-h-11',
 }
 
 const variants: Record<Variant, string> = {
@@ -27,7 +27,7 @@ const variants: Record<Variant, string> = {
   ghost:
     'border border-line text-ink bg-transparent hover:border-ink hover:bg-[rgba(163,56,43,0.05)]',
   'ghost-red': 'border border-seal text-seal bg-transparent hover:bg-seal hover:text-paper',
-  text: 'text-seal normal-case tracking-normal font-serif italic px-0 py-0 hover:underline underline-offset-4',
+  text: 'text-seal normal-case tracking-normal font-serif italic px-0 py-0 hover:underline underline-offset-4 max-sm:-my-2 max-sm:py-2',
 }
 
 export function Button({

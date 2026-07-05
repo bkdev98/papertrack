@@ -79,7 +79,7 @@ function renderInline(text: string, key: string): ReactNode[] {
       out.push(
         <code
           key={`${key}-${i}`}
-          className="rounded-[2px] border border-rule bg-paper-chip px-[4px] py-[0.5px] font-mono text-[0.82em] text-ink-rank"
+          className="rounded-[2px] border border-rule bg-paper-chip px-[4px] py-[0.5px] font-mono text-[0.82em] text-ink-rank max-sm:break-all"
         >
           {m[3]}
         </code>,
@@ -102,7 +102,12 @@ function renderInline(text: string, key: string): ReactNode[] {
 export function Markdown({ text, className }: { text: string; className?: string }) {
   const blocks = useMemo(() => parseBlocks(text), [text])
   return (
-    <div className={cn('space-y-2.5 text-[13.5px] leading-[1.66] text-ink', className)}>
+    <div
+      className={cn(
+        'space-y-2.5 text-[13.5px] leading-[1.66] text-ink max-sm:break-words',
+        className,
+      )}
+    >
       {blocks.map((b, bi) => {
         if (b.kind === 'h') {
           return (

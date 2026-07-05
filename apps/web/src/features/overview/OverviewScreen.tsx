@@ -42,10 +42,7 @@ export function OverviewScreen() {
   return (
     <div className="animate-pt-page font-serif text-ink">
       {/* ── Top grid: hero + sparkline · six stat cells · seal + note ── */}
-      <div
-        className="grid items-start gap-7"
-        style={{ gridTemplateColumns: 'minmax(200px,260px) minmax(355px,1fr) minmax(165px,215px)' }}
-      >
+      <div className="grid grid-cols-1 items-start gap-7 md:grid-cols-[minmax(200px,260px)_minmax(0,1fr)] lg:grid-cols-[minmax(200px,260px)_minmax(355px,1fr)_minmax(165px,215px)]">
         {/* LEFT — hero + sparkline */}
         <div className="min-w-0 animate-pt-ink" style={{ animationDelay: '0.1s' }}>
           <button
@@ -192,14 +189,14 @@ export function OverviewScreen() {
         </div>
 
         {/* RIGHT — wax seal + taped sticky note */}
-        <div className="flex flex-col items-center gap-6 pt-0.5">
+        <div className="flex flex-col items-center gap-6 pt-0.5 md:max-lg:col-span-2 md:max-lg:flex-row md:max-lg:items-start md:max-lg:justify-center">
           <WaxSeal date={todayDots} />
           <DashboardNote deadlines={deadlines} papers={papers ?? []} />
         </div>
       </div>
 
       {/* ── Lower grid: stages + in-process ledger · deadlines + tally ── */}
-      <div className="mt-8 grid gap-x-[52px] gap-y-9" style={{ gridTemplateColumns: '1.55fr 1fr' }}>
+      <div className="mt-8 grid grid-cols-1 gap-x-[52px] gap-y-9 lg:grid-cols-[1.55fr_1fr]">
         <div className="min-w-0">
           <StageFunnel stages={stats.stages} inprocCount={stats.inprocCount} />
           <InProcessLedger papers={papers ?? []} inprocCount={stats.inprocCount} />
@@ -216,7 +213,7 @@ export function OverviewScreen() {
         style={{ animationDelay: '1.1s' }}
       >
         <span className="text-[15px] text-seal">❦</span>
-        <span className="font-mono text-[9px] tracking-[2px] text-muted">
+        <span className="font-mono text-[9px] tracking-[2px] text-muted max-sm:text-center">
           CẬP NHẬT {todayDots} — {stats.total} HỒ SƠ — IN TẠI XƯỞNG PAPERTRACK
         </span>
       </div>

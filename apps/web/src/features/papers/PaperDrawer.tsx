@@ -130,14 +130,14 @@ export function PaperDrawer({
               <DrawerBody>
                 {/* Title block + pinned status stamp */}
                 <div className="relative">
-                  <div className="absolute right-0 top-0">
+                  <div className="absolute right-0 top-0 max-sm:static max-sm:mb-2">
                     <StatusStamp
                       status={paper.status}
                       short={false}
                       className="!border-[2.5px] !px-[11px] !py-[6px] !text-[10.5px] !tracking-[1.8px] font-semibold [border-radius:4px/9px]"
                     />
                   </div>
-                  <div className="pr-[118px] font-serif text-[21px] font-semibold leading-[1.35] text-ink">
+                  <div className="max-sm:pr-0 pr-[118px] font-serif text-[21px] font-semibold leading-[1.35] text-ink">
                     {paper.title}
                   </div>
                   <div className="mt-1.5 font-serif text-[14px] italic text-muted">
@@ -180,7 +180,7 @@ export function PaperDrawer({
                           style={{ transform: 'translateY(-3px)' }}
                         />
                         <span
-                          className="whitespace-nowrap font-mono text-[10px] opacity-0 transition-opacity group-hover:opacity-100"
+                          className="whitespace-nowrap font-mono text-[10px] opacity-0 max-sm:opacity-100 transition-opacity group-hover:opacity-100"
                           style={{ color: r.dateColor }}
                         >
                           {r.dateF}
@@ -223,7 +223,7 @@ export function PaperDrawer({
                 {/* Chữ ký tác giả */}
                 <Section eyebrow="Chữ ký tác giả">
                   {paper.authors.length ? (
-                    <div className="grid grid-cols-2 gap-x-5 gap-y-4">
+                    <div className="grid max-sm:grid-cols-1 grid-cols-2 gap-x-5 gap-y-4">
                       {paper.authors.map((name) => {
                         const unit = authors.find((a) => a.name === name)?.unit ?? ''
                         return (
@@ -361,7 +361,7 @@ export function PaperDrawer({
 
                 {/* DOI */}
                 {paper.doi && (
-                  <div className="mt-[18px] font-mono text-[10.5px] text-muted">
+                  <div className="mt-[18px] font-mono text-[10.5px] text-muted max-sm:break-all">
                     DOI: <span className="text-link">{paper.doi}</span>
                   </div>
                 )}
@@ -493,7 +493,7 @@ function AttachmentRow({ att, onRemove }: { att: Attachment; onRemove: () => voi
         <a
           href={url}
           download
-          className="shrink-0 font-mono text-[10px] text-link hover:opacity-70"
+          className="shrink-0 font-mono text-[10px] text-link hover:opacity-70 max-sm:p-2 max-sm:-my-2"
         >
           ↓ tải
         </a>
@@ -501,7 +501,7 @@ function AttachmentRow({ att, onRemove }: { att: Attachment; onRemove: () => voi
           type="button"
           onClick={onRemove}
           aria-label="Gỡ tệp"
-          className="shrink-0 cursor-pointer text-[12px] leading-none text-faint transition-colors hover:text-seal"
+          className="shrink-0 cursor-pointer text-[12px] leading-none text-faint transition-colors hover:text-seal max-sm:p-2 max-sm:-my-2"
         >
           ✕
         </button>

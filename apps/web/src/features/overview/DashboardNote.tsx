@@ -114,7 +114,7 @@ export function DashboardNote({
           — {shown.sign} ↘
         </div>
       </button>
-      <div className="mt-1 flex items-center justify-between opacity-0 transition-opacity group-hover:opacity-100">
+      <div className="mt-1 flex items-center justify-between opacity-0 transition-opacity group-hover:opacity-100 max-lg:opacity-100">
         {isAuto ? (
           <span className="font-serif text-[10.5px] italic text-faint">
             {isAI ? '✨ gợi ý AI' : 'tự động'}
@@ -125,7 +125,7 @@ export function DashboardNote({
         <button
           type="button"
           onClick={openEditor}
-          className="cursor-pointer font-serif text-[11px] italic text-muted transition-colors hover:text-seal"
+          className="cursor-pointer font-serif text-[11px] italic text-muted transition-colors hover:text-seal max-sm:py-2 max-sm:pl-2"
         >
           ✎ ghi chú
         </button>

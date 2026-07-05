@@ -122,7 +122,7 @@ export function AuthGate({ onUnlocked }: { onUnlocked: () => void }) {
                 }}
                 placeholder="nhập mật khẩu…"
                 autoFocus
-                className="w-full bg-transparent px-0.5 py-2 pr-9 font-serif text-[19px] text-ink outline-none transition-colors placeholder:italic placeholder:text-faint"
+                className="w-full bg-transparent px-0.5 py-2 pr-9 max-sm:pr-12 font-serif text-[19px] text-ink outline-none transition-colors placeholder:italic placeholder:text-faint"
                 style={{
                   borderBottom: `1.5px solid ${error ? 'var(--color-seal)' : 'var(--color-ink)'}`,
                   letterSpacing: show ? '0.3px' : '3px',
@@ -131,7 +131,7 @@ export function AuthGate({ onUnlocked }: { onUnlocked: () => void }) {
               <button
                 type="button"
                 onClick={() => setShow((s) => !s)}
-                className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer p-1 font-serif text-[15px] italic text-muted transition-colors hover:text-seal"
+                className="absolute right-0 top-1/2 -translate-y-1/2 cursor-pointer p-1 max-sm:p-2.5 font-serif text-[15px] italic text-muted transition-colors hover:text-seal"
               >
                 {show ? 'ẩn' : 'hiện'}
               </button>
